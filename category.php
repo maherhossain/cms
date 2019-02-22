@@ -19,7 +19,11 @@ include "inc/nav.php";
                 </h1>
 
             <?php 
-                $sql = "SELECT * FROM posts";
+            if(isset($_GET['id'])){
+            	$category = $_GET['id'];
+            }
+             
+                $sql = "SELECT * FROM posts WHERE post_category_id=$category";
                 $fetchData = mysqli_query($conn, $sql);
 
                 while($result = mysqli_fetch_assoc($fetchData)){

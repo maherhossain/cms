@@ -19,7 +19,7 @@
 
 
 
-    <!-- Blog Categories Well -->
+    <!-- Blog Categories  -->
     <div class="card card-body my-3">
         <h4>Blog Categories</h4>
         <div class="row">
@@ -31,7 +31,8 @@
 
                         while($result = mysqli_fetch_assoc($fetchData)){
                           $row = $result['name'];
-                          echo "<li class='list-group-item'><a class='text-dark' href='#'>$row</a></li>";
+                          $id = $result['id'];
+                          echo "<li class='list-group-item'><a class='text-dark' href='category.php?id=$id'>$row</a></li>";
                         }
                     ?>
                 </ul>
