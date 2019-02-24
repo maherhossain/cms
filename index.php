@@ -29,6 +29,11 @@ include "inc/nav.php";
                   $date = $result['post_date'];
                   $image = $result['post_image'];
                   $content = substr($result['post_content'], 0, 200);
+
+                  $status = $result['post_status'];
+                  if($status !== 'published'){
+                    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>No Post Found!!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+                  }else{
             ?>
             <div class="card p-4 my-3">
                 <div class="card-body">
@@ -49,7 +54,7 @@ include "inc/nav.php";
                 </div>
             </div>
 
-            <?php  } ?>
+            <?php  } }?>
 
             </div>
 

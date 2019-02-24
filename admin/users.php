@@ -17,20 +17,16 @@
 	}
 
 	switch($source){
-		case 'add_post':
-			include "inc/add_post.php";
+		case 'add_user':
+			include "inc/add_user.php";
 			break;
 
-		case 'edit_post':
-			include "inc/edit_post.php";
-			break;
-
-		case '12':
-			echo "12";
+		case 'edit_user':
+			include "inc/edit_user.php";
 			break;
 
 		default:
-			include "inc/view_all_posts.php";
+			include "inc/view_all_users.php";
 			break;
 	}
 
@@ -40,11 +36,12 @@
 
 
 
-				</div>
-	        </div>
+            </div>
         </div>
-        
     </div>
+
+</div>
 <?php include "inc/footer.php"; ?>
+
 
 

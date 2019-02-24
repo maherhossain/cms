@@ -45,7 +45,7 @@ if(isset($_POST['update'])){
 
     $execute = mysqli_query($conn, $sql);
     confirmQuery($execute);
-    // header("location: posts.php");
+    header("location: posts.php");
 }
 ?>
 
@@ -66,10 +66,18 @@ if(isset($_POST['update'])){
           while($result = mysqli_fetch_assoc($fetchData)){
             $name = $result['name'];
             $id = $result['id'];
-            //$selected = ($id == $id)?'selected' : '';
-            echo "<option value='$id'>$name</option>";
+            $selected = ($post_category_id == $id)? 'selected' : '';
+            echo "<option value='$id' $selected>$name</option>";
           }
       ?>
+
+
+
+
+
+
+
+
     </select>
   </div>
   <div class="form-group">

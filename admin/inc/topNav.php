@@ -12,10 +12,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.php">HOME</a>
+                    <a class="nav-link pt-3" href="../index.php">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                    <a class="nav-link pt-3" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </li>
+                <li class="nav-item"><img src="../images/profile.jpg" height="50" width="50" class="d-block mx-auto img-fluid rounded-circle" alt="">
                 </li>
             </ul>
         </div>

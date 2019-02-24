@@ -30,7 +30,7 @@
 			break;
 
 		default:
-			include "inc/view_all_posts.php";
+			include "inc/view_all_comments.php";
 			break;
 	}
 
@@ -40,11 +40,11 @@
 
 
 
-				</div>
-	        </div>
+            </div>
         </div>
-        
     </div>
+
+</div>
 <?php include "inc/footer.php"; ?>
 
 

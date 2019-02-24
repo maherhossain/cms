@@ -47,7 +47,12 @@
 	      echo "<td>{$post_status}</td>";
 	      echo "<td><img width='100' class='img-fluid' src='../images/{$post_image}'></td>";
 	      echo "<td>{$post_tags}</td>";
+        
+        
 	      echo "<td>{$post_comment_count}</td>";
+        
+        
+        
 	      echo "<td>{$post_date}</td>";
 	      echo "<td><a href='posts.php?source=edit_post&post_id={$post_id}' class='btn btn-primary p-0 py-1 px-2'>Edit</a></td>";
 	      echo "<td><a href='posts.php?delete={$post_id}' class='btn btn-danger p-0 py-1 px-2'>Delete</a></td>";
