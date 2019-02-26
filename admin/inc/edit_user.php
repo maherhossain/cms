@@ -7,14 +7,14 @@ if(isset($_GET['user_id'])){
   $fetchData = mysqli_query($conn, $query);
 
     while($result = mysqli_fetch_assoc($fetchData)){
-      $user_id        = $result['user_id'];
-      $user_name      = $result['username'];
+      $user_id            = $result['user_id'];
+      $user_name          = $result['username'];
       $user_first_name    = $result['user_first_name'];
       $user_last_name     = $result['user_last_name'];
-      $user_password    = $result['user_password'];
-      $user_email       = $result['user_email'];
-      $user_image       = $result['user_image'];
-      $user_role      = $result['user_role'];
+      $user_password      = $result['user_password'];
+      $user_email         = $result['user_email'];
+      $user_image         = $result['user_image'];
+      $user_role          = $result['user_role'];
 }
 
 }
@@ -34,6 +34,14 @@ if(isset($_POST['update'])){
     $userImageTemp    = $_FILES['userImage']['tmp_name'];
 
     move_uploaded_file($userImageTemp, "../images/$userImage");
+
+    if(empty($userImage)){
+      $sql = "SELECT user_image FROM users WHERE user_id= $user_id";
+      $fetchData = mysqli_query($conn, $sql);   
+          while($result = mysqli_fetch_assoc($fetchData)){
+            $userImage = $result['user_image'];
+          }
+    }
 
 
     $sql = "UPDATE users  SET username = '$username', user_password = '$password', user_first_name = '$fname', user_last_name = '$lname', user_email='$email', user_image='$userImage', user_role= '$role' WHERE user_id=$user_id";
@@ -72,8 +80,8 @@ if(isset($_POST['update'])){
     <input type="text" name="username" class="form-control" id="username" placeholder="Username" value="<?php echo $user_name; ?>">
   </div>
   <div class="form-group">
-    <label for="password">Username</label>
-    <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="<?php echo $password; ?>">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="<?php echo $user_password; ?>">
   </div>
 
   <div class="form-group">

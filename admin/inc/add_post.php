@@ -70,7 +70,7 @@ if(isset($_POST['submit'])){
   </div>
   <div class="form-group">
     <label for="postContent">Post Details</label>
-    <textarea class="form-control" id="postContent" name="postContent" rows="8"></textarea>
+    <textarea class="form-control" id="mytextarea" name="postContent" rows="8"></textarea>
   </div>
 
   <button type="submit" name="submit" class="btn btn-primary">Submit</button>

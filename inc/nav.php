@@ -1,6 +1,6 @@
   <nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="index.php">Mcms</a>
+    <a class="navbar-brand" href="index.php"> <img src="https://www.maherhossain.com/wp-content/uploads/2018/05/maher-hossain.png"> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,8 +29,23 @@
         <li class="nav-item">
           <a class="nav-link" href="/cms/admin/">Admin</a>
         </li>
+
+        <?php
+          if(isset($_SESSION['user'])){
+            if(isset($_GET['id'])){
+              $get_id = $_GET['id'];
+              echo $get_id;
+                echo "<li class='nav-item'><a class='nav-link' href='admin/posts.php?source=edit_post&post_id={$get_id}'>Edit Post</a></li>";
+            }
+          }
+          // }
+          //posts.php?source=edit_post&post_id=2
+        ?>
+
       </ul>
 
     </div>
   </div>
-  </nav>
+</nav>
+
+

@@ -14,9 +14,9 @@ include "inc/nav.php";
             <!-- Blog Entries Column -->
             <div class="col-md-8 mt-4">
 
-                <h1 class="page-header">
+                <!-- <h1 class="page-header">
                     Page Heading<small>Secondary Text</small>
-                </h1>
+                </h1> -->
 
             <?php 
                 $sql = "SELECT * FROM posts";
@@ -31,9 +31,7 @@ include "inc/nav.php";
                   $content = substr($result['post_content'], 0, 200);
 
                   $status = $result['post_status'];
-                  if($status !== 'published'){
-                    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>No Post Found!!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-                  }else{
+                  if($status == 'published'){
             ?>
             <div class="card p-4 my-3">
                 <div class="card-body">

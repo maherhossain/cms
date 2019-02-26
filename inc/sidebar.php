@@ -1,7 +1,7 @@
 <div class="col-md-4">
 
     <!-- Blog Search Well -->
-    <div class="card card-body my-3">
+    <div class="card card-body mt-5 mb-3">
         <h4>Blog Search</h4>
         <form action="search.php" method="get">
             <div class="input-group">
@@ -22,12 +22,12 @@
         <h4>Login</h4>
         <form action="inc/login.php" method="post">
           <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="text" name="email" class="form-control" id="email" placeholder="Enter email or username">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="username">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
           </div>
           <button type="submit" name="login" class="btn btn-primary">Login</button>
         </form>

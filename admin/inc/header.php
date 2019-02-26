@@ -1,5 +1,18 @@
-<?php ob_start(); ?>
 <?php include "functions.php"; ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
+<?php
+    if(!isset($_SESSION['role'])){
+        // if($_SESSION['role'] !== 'admin'){
+            header("Location: ../index.php");
+        // }
+    }else if(isset($_SESSION['role'])){
+        if($_SESSION['role'] !== 'admin'){
+            header("Location: ../index.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Dashboard | custom cms developed by MAHER</title>
 
     <!-- Bootstrap CSS CDN -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
@@ -20,8 +33,8 @@
     <link rel="stylesheet" href="css/style2.css">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-
-    
+<!-- google map api -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 

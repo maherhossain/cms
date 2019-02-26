@@ -44,8 +44,13 @@ if(isset($_POST['update'])){
     $sql = "UPDATE posts SET post_category_id='$category', post_title='$title', post_author='$author', post_date=now(), post_image = '$postImage', post_content='$content', post_tags='$tags', post_status='$status' WHERE post_id=$post_id";
 
     $execute = mysqli_query($conn, $sql);
-    confirmQuery($execute);
-    header("location: posts.php");
+    if($execute){
+      echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>Post Updated Successfully!!<a class='mx-2 text-danger' href='../post.php?id=$post_id'>View post</a>|<a class='mx-2 text-secondary' href='posts.php'>View All post</a><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+    }else{
+      echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Post Update Failed!!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>" . mysqli_error($conn);
+    }
+    // confirmQuery($execute);
+    // header("location: posts.php");
 }
 ?>
 
@@ -71,23 +76,32 @@ if(isset($_POST['update'])){
           }
       ?>
 
-
-
-
-
-
-
-
     </select>
   </div>
   <div class="form-group">
     <label for="author">Author Name</label>
     <input value="<?php echo $post_author; ?>" type="text" name="author" class="form-control" id="author" placeholder="Author">
   </div>
+
+
   <div class="form-group">
     <label for="status">Post Status</label>
-    <input value="<?php echo $post_status; ?>" type="text" name="status" class="form-control" id="status" placeholder="Post Status">
+    <select name="status" id="status" class="form-control">
+      <option value="<?php echo $post_status; ?>"><?php echo $post_status; ?></option>
+      <?php
+        if($post_status == 'published'){
+          echo '<option value="draft">Draft</option>';
+        }else{
+          echo '<option value="published">Published</option>';
+        }
+      ?>
+    </select>
+
+    
+    <!-- <input value="<?php echo $post_status; ?>" type="text" name="status" class="form-control" id="status" placeholder="Post Status"> -->
   </div>
+
+
   <div class="form-group">
     <label for="postImage">Upload Image</label>
     <p><img src="../images/<?php echo $post_image; ?>" alt="image" width="100"></p>
